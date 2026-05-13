@@ -17,6 +17,14 @@ deleted pci.c and pci.h due to reduction in available memory
 #include <sys/paging.h>
 #include <sys/kmemcpy.h>
 
+uint64_t last_assn_pid;
+Task *CURRENT_TASK;
+Task *FG_TASK;
+Task *SLEEPING_TASK;
+uint64_t TERMINAL_BUFFER;
+uint64_t TERM_BUF_OFFSET;
+uint64_t *PML4_debug;
+
 #define INITIAL_STACK_SIZE 4096
 uint8_t initial_stack[INITIAL_STACK_SIZE]__attribute__((aligned(16)));
 uint32_t* loader_stack;

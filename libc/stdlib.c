@@ -47,7 +47,7 @@ int execvpe(const char *file, char *const argv[], char *const envp[]) {
       if(envp[i][j] != '\0')
        { k++;j++;l=0; }
       else
-        k++;l=0;
+       { k++;l=0; }
     }
   }
   for(i = 0; i < k; i++) {

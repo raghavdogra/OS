@@ -1,0 +1,11 @@
+*.o
+*.a
+*.img
+*.iso
+*.d
+kernel
+obj/
+.vscode/
+rootfs/bin/
+rootfs/boot/large-file-padding
+rootfs/boot/kernel/

@@ -23,7 +23,7 @@ typedef struct dent {
 	int d_type;
 }dentry;
 
-dentry *root_node;
+extern dentry *root_node;
 
 void parse_tarfs();
 void initfs();

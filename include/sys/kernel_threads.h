@@ -9,7 +9,7 @@
 #define USER_STACK 0xc0000000
 #define USER_STACK_SIZE 0x10000000
 
-uint64_t last_assn_pid;
+extern uint64_t last_assn_pid;
 typedef struct {
     uint64_t rax, rbx, rcx, rdx, rsi, rdi, rsp, rbp, rip;
     uint64_t r8, r9, r10, r11, r12, r13, r14, r15;
@@ -73,12 +73,12 @@ typedef struct TASK {
    char cwd[100];
 } Task ;
 
-Task *CURRENT_TASK;
+extern Task *CURRENT_TASK;
 extern void switchTask(Registers *oldregs, Registers *newregs); 
 extern void switchTaskUser(Registers *oldregs, Registers *newregs); 
 extern void saveState(Registers *oldregs); 
-Task *FG_TASK;
-Task *SLEEPING_TASK;
-uint64_t TERMINAL_BUFFER;
-uint64_t TERM_BUF_OFFSET;
+extern Task *FG_TASK;
+extern Task *SLEEPING_TASK;
+extern uint64_t TERMINAL_BUFFER;
+extern uint64_t TERM_BUF_OFFSET;
 #endif

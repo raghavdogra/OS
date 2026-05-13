@@ -1,6 +1,12 @@
 #include <sys/paging.h>
 #include <sys/kprintf.h>
 pg_desc_t *free_list_head;
+pg_desc_t *free_list;
+uint64_t *PML4_kern;
+uint64_t *PDTP;
+uint64_t *PDE;
+uint64_t *PTE1;
+uint64_t *tss_kstack;
 extern char kernmem, physbase;
 
 uint64_t get_physical_free_page () {
@@ -13,7 +19,6 @@ uint64_t get_physical_free_page () {
   if(free_list_head->is_avail==0) {
     kprintf("ERROR: trying to allocate a non avaialable page %x\n",(uint64_t) (free_list_head->index * 4096));
     while(1);
-	return 0;
   }
   uint64_t addr = (uint64_t) (free_list_head->index * 4096);
   pg_desc_t * temp = free_list_head;

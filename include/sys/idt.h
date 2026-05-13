@@ -13,13 +13,13 @@ struct IDTDescr {
    uint32_t id_offset_3; // offset bits 32..63
    uint32_t id_zero ;// = 0;     // reserved
 }__attribute__((packed));
-struct IDTDescr idt[256];
+extern struct IDTDescr idt[256];
 
 struct IDT_table_ptr {
   uint16_t limit;
   uint64_t base;
 }__attribute__((packed));
-struct IDT_table_ptr idt_ptr; 
+extern struct IDT_table_ptr idt_ptr; 
 
 void init_idt();
 void set_idt(struct IDTDescr *idt_entry, uint16_t offset_1, uint16_t selector, uint8_t ist, uint16_t type_attr, uint16_t offset_2, uint32_t offset_3);

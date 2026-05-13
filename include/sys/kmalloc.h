@@ -25,7 +25,7 @@ typedef struct kmem_cache_t {
     unsigned int        num;  //The number of objects stored on each slab.   
 } kmem_cache_t;
 
-kmem_cache_t * cache_cache;
+extern kmem_cache_t * cache_cache;
 void * virt_to_page(void *objp);
 void * alloc_obj(kmem_cache_t *cachep, slab_t *slabp);
 void free_obj(void *objp);

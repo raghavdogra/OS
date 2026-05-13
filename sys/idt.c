@@ -1,6 +1,10 @@
 #include <sys/idt.h>
 #include <sys/defs.h>
 #include <sys/kprintf.h>
+
+struct IDTDescr idt[256];
+struct IDT_table_ptr idt_ptr;
+
 extern uint64_t kyb_isr;
 extern uint64_t timer_isr;
 extern uint64_t generic_isr_noerr;

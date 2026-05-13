@@ -3,6 +3,8 @@
 #include <sys/kprintf.h>
 #include <sys/kmemcpy.h>
 
+kmem_cache_t * cache_cache;
+
 void * virt_to_page(void *objp) {
   uint64_t addr = (uint64_t)objp;
   addr = addr & 0xfffffffffffff000;

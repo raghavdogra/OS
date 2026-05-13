@@ -4,9 +4,9 @@ SECTIONS
   physbase = 0x200000;
   kernmem = 0xffffffff80000000 + physbase;
   . = kernmem + SIZEOF_HEADERS;
-  .text : { *(.text) }
-  .rodata : { *(.rodata) }
-  .got ALIGN(0x1000): { *(.got) *(.got.plt) }
-  .bss ALIGN(0x1000): { *(.bss) *(COMMON) }
-  .data : { *(.data) }
+  .text : AT(ADDR(.text) - kernmem + physbase) { *(.text) }
+  .rodata : AT(ADDR(.rodata) - kernmem + physbase) { *(.rodata) }
+  .got ALIGN(0x1000) : AT(ADDR(.got) - kernmem + physbase) { *(.got) *(.got.plt) }
+  .bss ALIGN(0x1000) : AT(ADDR(.bss) - kernmem + physbase) { *(.bss) *(COMMON) }
+  .data : AT(ADDR(.data) - kernmem + physbase) { *(.data) }
 }

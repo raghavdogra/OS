@@ -8,6 +8,8 @@
 #include <sys/kmemcpy.h>
 #include <sys/kstring.h>
 #include <sys/utils.h>
+
+dentry *root_node;
 #include <sys/kmalloc.h>
 
 char* dentry_lookup_get_path(char* path) {

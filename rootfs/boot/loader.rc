@@ -12,5 +12,5 @@ include /boot/beastie.4th
 
 \ Start the boot menu
 \ beastie-start
-clear
-draw-beastie
+load /boot/kernel/kernel
+boot
